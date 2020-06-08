@@ -83,15 +83,16 @@ ingress:
 jxRequirements:
   ingress:
     domain: ""
-    externalDNS: false
+    externalDNS: true
     namespaceSubDomain: -jx.
     tls:
       email: ""
-      enabled: false
+      enabled: true
       production: false
 
     # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
-    apiVersion: "extensions/v1beta1"
+    # apiVersion: "extensions/v1beta1"
+    apiVersion: "networking.k8s.io/v1beta1"
 
     # shared ingress annotations on all services
     annotations:
