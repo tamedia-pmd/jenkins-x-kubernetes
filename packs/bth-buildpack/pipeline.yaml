@@ -4,8 +4,10 @@ agent:
   label: jenkins-nodejs
   container: nodejs
 pipelines:
-  pullRequest:
-    build:
-      preSteps:
-      - sh: echo “Ovo su preSteps za PR!”
+  overrides:
+  - pipeline: pullRequest
+#  pullRequest:
+#    build:
+#      preSteps:
+#      - sh: echo “Ovo su preSteps za PR!”
 
