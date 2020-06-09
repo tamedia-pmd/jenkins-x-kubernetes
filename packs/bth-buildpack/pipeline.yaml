@@ -3,6 +3,9 @@ extends:
 agent:
   label: jenkins-nodejs
   container: nodejs
+env:
+  NPM_LOGIN: vault:npm:npm_login
+  NPM_PASSWORD: vault:npm:npm_password
 
 pipelines:
   pullRequest:
