@@ -3,9 +3,10 @@ extends:
 agent:
   label: jenkins-nodejs
   container: nodejs
-pipelines:
-  overrides:
-  - pipeline: pullRequest
+#pipelines:
+#  overrides:
+#  - pipeline: pullRequest
+#    stage build: 
 #  pullRequest:
 #    build:
 #      preSteps:
