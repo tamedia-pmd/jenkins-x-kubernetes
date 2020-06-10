@@ -3,11 +3,11 @@ extends:
 agent:
   label: jenkins-nodejs
   container: nodejs
-#pipelines:
-#  overrides:
-#  - pipeline: pullRequest
-#    stage: build
-#    name: npmrc
+pipelines:
+  overrides:
+  - pipeline: pullRequest
+    stage: build
+    name: npm-test
 #    steps:
 #    - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
 #      name: npmrc
