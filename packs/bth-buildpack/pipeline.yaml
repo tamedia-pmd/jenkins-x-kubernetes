@@ -11,6 +11,9 @@ pipelines:
       stage: preBuild
       agent:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
+      steps:
+        - sh: echo `which pip`
+          name: test-pip
   #     name: test-python-preBuildStage
   #     steps:
   #       - sh: echo `which pip`
