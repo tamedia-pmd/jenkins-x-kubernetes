@@ -1,22 +1,22 @@
 extends:
   file: ../javascript/pipeline.yaml
 agent:
-  label: jenkins-nodejs
-  container: nodejs
+  label: jenkins-python
+  container: gcr.io/jenkinsxio/jenkins-python
 pipelines:
   overrides:
   - pipeline: pullRequest
-#    stage: build
-#    name: npm-test
-##    steps:
-##    - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
-##      name: npmrc
-###pipelines:
-###  overrides:
-###  - pipeline: pullRequest
-###    stage build: 
-###  pullRequest:
-###    build:
-###      preSteps:
-###      - sh: echo “Ovo su preSteps za PR!”
-
+   stage: build
+   name: npm-test
+   steps:
+   - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
+     name: npmrc
+   - sh: echo `which pip`
+#pipelines:
+#  overrides:
+#  - pipeline: pullRequest
+#    stage build: 
+#  pullRequest:
+#    build:
+#      preSteps:
+#      - sh: echo “Ovo su preSteps za PR!”
