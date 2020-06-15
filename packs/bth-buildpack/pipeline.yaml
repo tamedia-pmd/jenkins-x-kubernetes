@@ -9,8 +9,8 @@ pipelines:
   overrides:
     - pipeline: pullRequest
       stage: preBuild
-        agent:
-          image: "gcr.io/jenkinsxio/jenkins-python:latest"
+      agent:
+        image: "gcr.io/jenkinsxio/jenkins-python:latest"
   #     name: test-python-preBuildStage
   #     steps:
   #       - sh: echo `which pip`
