@@ -19,7 +19,5 @@ pipelines:
   overrides:
     - pipeline: pullRequest
       stage build:
-  pullRequest:
-    build:
-      preSteps:
-        - sh: echo “Ovo su preSteps za PR!”
+        preSteps:
+          - sh: echo “Ovo su preSteps za PR!”
