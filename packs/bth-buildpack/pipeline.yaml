@@ -9,10 +9,14 @@ pipelines:
       agent:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
       stage: build
-#    name: npm-test
-##    steps:
-##    - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
-##      name: npmrc
+        preSteps:
+          name: test-pip
+          steps:
+          - sh: 
+      # name: npm-test
+      # steps:
+      # - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
+        # name: npmrc
 ###pipelines:
 ###  overrides:
 ###  - pipeline: pullRequest
