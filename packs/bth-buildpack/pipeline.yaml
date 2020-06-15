@@ -6,11 +6,16 @@ pipelines:
       steps:
         - sh: pip install awscli --upgrade --user
           name: pip-install-awscli
+        - sh: aws --help
+          name: aws-cli-test
   overrides:
     - pipeline: pullRequest
       stage: preBuild
       agent:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
+    - pipeline: pullRequest
       stage: build
+    - pipeline: pullRequest
       stage: postBuild
+    - pipeline: pullRequest
       stage: promote
