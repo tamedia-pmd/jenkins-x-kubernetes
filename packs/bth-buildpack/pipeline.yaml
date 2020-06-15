@@ -6,8 +6,8 @@ pipelines:
       steps:
         - sh: pip install awscli --upgrade --user && ls -la $HOME/.local/bin
           name: pip-install-awscli
-        - sh: echo "{{ .env.AWS_ACCOUNT_ID }}"
-          name: vault-var-print-test
+        # - sh: echo "{{ .env.AWS_ACCOUNT_ID }}"
+        #   name: vault-var-print-test
   overrides:
     - pipeline: pullRequest
       stage: preBuild
