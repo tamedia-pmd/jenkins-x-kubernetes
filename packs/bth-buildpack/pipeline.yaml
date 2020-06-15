@@ -4,10 +4,10 @@ pipelines:
   pullRequest:
     preBuild:
       steps:
-        - sh: pip install awscli --upgrade --user
+        - sh: pip install awscli --upgrade --user && ls -la $HOME/.local/bin
           name: pip-install-awscli
-        - sh: aws --help
-          name: aws-cli-test
+        # - sh: aws --help
+        #   name: aws-cli-test
   overrides:
     - pipeline: pullRequest
       stage: preBuild
