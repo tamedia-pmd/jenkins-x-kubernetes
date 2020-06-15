@@ -5,17 +5,17 @@ agent:
   container: gcr.io/jenkinsxio/jenkins-python
 pipelines:
   overrides:
-  - pipeline: pullRequest
-   stage: build
-   name: npm-test
-   steps:
-   - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
-     name: npmrc
-   - sh: echo `which pip`
+    - pipeline: pullRequest
+      stage: build
+      name: npm-test
+      steps:
+        - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
+          name: npmrc
+        - sh: which pip
 #pipelines:
 #  overrides:
 #  - pipeline: pullRequest
-#    stage build: 
+#    stage build:
 #  pullRequest:
 #    build:
 #      preSteps:
