@@ -10,9 +10,7 @@ pipelines:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
       stage: build
         preSteps:
-          name: test-pip
-          steps:
-          - sh: 
+          - sh: echo `which pip`
       # name: npm-test
       # steps:
       # - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
