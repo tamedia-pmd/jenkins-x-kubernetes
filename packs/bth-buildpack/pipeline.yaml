@@ -8,6 +8,16 @@ pipelines:
           name: pip-install-awscli
         - sh: aws --help
           name: aws-cli-test
+    build:
+      steps:
+        - loop:
+            variable: OSs
+            values:
+              - linux
+              - windows
+            steps:
+              - name: build
+                command: echo \${GOOS}
   overrides:
     - pipeline: pullRequest
       stage: preBuild
