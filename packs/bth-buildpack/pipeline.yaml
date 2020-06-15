@@ -21,8 +21,8 @@ pipelines:
       stage preBuild:
         agent:
           image: "gcr.io/jenkinsxio/jenkins-python:latest"
-        steps:
-          - sh: echo `which pip`
-            name: test pip in preBuild stage
-        # preSteps:
-        #   - sh: echo “Ovo su preSteps za PR!”
+      steps:
+        - sh: echo `which pip`
+          name: test pip in preBuild stage
+          # preSteps:
+          #   - sh: echo “Ovo su preSteps za PR!”
