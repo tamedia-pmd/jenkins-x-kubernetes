@@ -18,6 +18,11 @@ agent:
 pipelines:
   overrides:
     - pipeline: pullRequest
-      stage build:
-        preSteps:
-          - sh: echo “Ovo su preSteps za PR!”
+      stage preBuild:
+        agent:
+          image: "gcr.io/jenkinsxio/jenkins-python:latest"
+        steps:
+          - sh: echo `which pip`
+            name: test pip in preBuild stage
+        # preSteps:
+        #   - sh: echo “Ovo su preSteps za PR!”
