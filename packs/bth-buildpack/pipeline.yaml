@@ -1,5 +1,23 @@
 extends:
   file: ../javascript/pipeline.yaml
+pipelines:
+  pullRequest:
+    preBuild:
+      steps:
+        - sh: echo `which pip`
+          name: test-pip
+  # overrides:
+  #   - pipeline: pullRequest
+  #     stage preBuild:
+  #     agent:
+  #       image: "gcr.io/jenkinsxio/jenkins-python:latest"
+  #     name: test-python-preBuildStage
+  #     steps:
+  #       - sh: echo `which pip`
+  #         name:
+  #           test pip in preBuild stage
+  # preSteps:
+  #   - sh: echo “Ovo su preSteps za PR!”
 # agent:
 #   label: jenkins-nodejs
 #   container: nodejs
@@ -15,23 +33,3 @@ extends:
 # steps:
 # - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
 #   name: npmrc
-pipelines:
-  pullRequest:
-    preBuild:
-    agent:
-      image: "gcr.io/jenkinsxio/jenkins-python:latest"
-    steps:
-      - sh: echo `which pip`
-        name: test-pip
-  # overrides:
-  #   - pipeline: pullRequest
-  #     stage preBuild:
-  #     agent:
-  #       image: "gcr.io/jenkinsxio/jenkins-python:latest"
-  #     name: test-python-preBuildStage
-  #     steps:
-  #       - sh: echo `which pip`
-  #         name:
-  #           test pip in preBuild stage
-  # preSteps:
-  #   - sh: echo “Ovo su preSteps za PR!”
