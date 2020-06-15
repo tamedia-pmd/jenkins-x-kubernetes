@@ -3,24 +3,23 @@ extends:
 agent:
   label: jenkins-nodejs
   container: nodejs
+# pipelines:
+# overrides:
+# - pipeline: pullRequest
+# agent:
+# image: "gcr.io/jenkinsxio/jenkins-python:latest"
+# stage: build
+# preSteps:
+# - sh: echo `which pip`
+# name: npm-test
+# steps:
+# - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
+#   name: npmrc
 pipelines:
   overrides:
     - pipeline: pullRequest
-      agent:
-        image: "gcr.io/jenkinsxio/jenkins-python:latest"
-      stage: build
-        preSteps:
-          - sh: echo `which pip`
-      # name: npm-test
-      # steps:
-      # - sh: jx step credential -s jenkins-npm-token -k file -f /builder/home/.npmrc --optional=true
-        # name: npmrc
-###pipelines:
-###  overrides:
-###  - pipeline: pullRequest
-###    stage build:
-###  pullRequest:
-###    build:
-###      preSteps:
-###      - sh: echo “Ovo su preSteps za PR!”
-
+      stage build:
+  pullRequest:
+    build:
+      preSteps:
+        - sh: echo “Ovo su preSteps za PR!”
