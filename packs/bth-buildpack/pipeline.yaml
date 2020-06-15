@@ -13,9 +13,9 @@ pipelines:
       stage: preBuild
       agent:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
-    # - pipeline: pullRequest
-    #   stage: build
-    # - pipeline: pullRequest
-    #   stage: postBuild
-    # - pipeline: pullRequest
-    #   stage: promote
+    - pipeline: pullRequest
+      stage: build
+    - pipeline: pullRequest
+      stage: postBuild
+    - pipeline: pullRequest
+      stage: promote
