@@ -4,16 +4,13 @@ pipelines:
   pullRequest:
     preBuild:
       steps:
-        - sh: echo `which pip`
-          name: test-pip
+        - sh: pip install awscli --upgrade --user
+          name: pip-install-awscli
   overrides:
     - pipeline: pullRequest
       stage: preBuild
       agent:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
-      steps:
-        - sh: pip install awscli --upgrade --user
-          name: pip-install-awscli
       stage: build
       stage: postBuild
       stage: promote
