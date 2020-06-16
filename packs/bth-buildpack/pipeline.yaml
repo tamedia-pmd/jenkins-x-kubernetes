@@ -13,6 +13,7 @@ pipelines:
       stage: preBuild
       agent:
         image: "gcr.io/jenkinsxio/jenkins-python:latest"
-      # stage: build
+      stage: build
+      name: npm-test
       # stage: postBuild
       # stage: promote
